@@ -1,6 +1,9 @@
 package aoc
 
 class Day1 : Day {
+
+    override val DEBUG = false
+
     override fun run() {
 
         val expenses = readLns("day1/input.txt").map { it.toInt() }

@@ -1,6 +1,9 @@
 package aoc
 
 class Day2 : Day {
+
+    override val DEBUG = false
+
     override fun run() {
         val rows = readLns("day2/input.txt")
 
