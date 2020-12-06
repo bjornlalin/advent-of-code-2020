@@ -2,7 +2,7 @@ package aoc
 
 class Day1 : Day {
 
-    override val DEBUG = false
+    override val debug = false
 
     override fun run() {
 

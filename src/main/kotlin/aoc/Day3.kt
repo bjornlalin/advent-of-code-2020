@@ -2,7 +2,7 @@ package aoc
 
 class Day3 : Day {
 
-    override val DEBUG = true
+    override val debug = true
 
     override fun run() {
         val rows = readLns("day3/input.txt")

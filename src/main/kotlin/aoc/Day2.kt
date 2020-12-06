@@ -2,7 +2,7 @@ package aoc
 
 class Day2 : Day {
 
-    override val DEBUG = false
+    override val debug = false
 
     override fun run() {
         val rows = readLns("day2/input.txt")
@@ -27,7 +27,7 @@ class Day2 : Day {
             }
 
             // Part 2
-            if ((pwd[min] == char).xor(pwd[max] == char)) {
+            if ((pwd[min] == char) xor (pwd[max] == char)) {
                 part2 += 1
             }
         }

@@ -2,7 +2,7 @@ package aoc
 
 class Day4 : Day {
 
-    override val DEBUG = true
+    override val debug = false
 
     private val required = setOf("byr", "iyr", "eyr", "hgt", "hcl", "ecl", "pid" /*, "cid" */)
 
