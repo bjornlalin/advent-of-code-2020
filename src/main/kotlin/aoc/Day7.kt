@@ -6,8 +6,8 @@ class Day7 : Day {
 
     override fun test() {
         val bags = parseBags(readLns("day7/test.txt"))
-        assert(countNumBagsWhichCanContain("shiny gold", bags) == 7)
-        assert(countBags("shiny gold", 1, bags) == 32)
+        println("Part 1 (test input): ${countNumBagsWhichCanContain("shiny gold", bags)}")
+        println("Part 2 (test input): ${countBags("shiny gold", 1, bags)}")
     }
 
     override fun run() {
@@ -51,7 +51,14 @@ class Day7 : Day {
 
     // Part 1: Count number of bags which can ultimately contain a bag of color 'color'
     private fun countNumBagsWhichCanContain(color: String, bags: Map<String, Map<String, Int>>): Int {
-        return bags.keys.map { if (canContain(it, color, bags)) 1 else 0 }.sum()
+        var cnt = 0
+        bags.keys.forEach {
+            if (canContain(it, color, bags)) {
+                cnt += 1
+            }
+        }
+
+        return cnt
     }
 
     private fun canContain(bagColor: String, color: String, bags: Map<String, Map<String, Int>>): Boolean {
@@ -62,7 +69,7 @@ class Day7 : Day {
         }
 
         for (c in containedBags.keys) {
-            if(canContain(bagColor, c, bags)) {
+            if(canContain(c, color, bags)) {
                 return true
             }
         }
