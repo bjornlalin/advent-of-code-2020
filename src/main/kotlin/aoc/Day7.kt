@@ -51,14 +51,7 @@ class Day7 : Day {
 
     // Part 1: Count number of bags which can ultimately contain a bag of color 'color'
     private fun countNumBagsWhichCanContain(color: String, bags: Map<String, Map<String, Int>>): Int {
-        var cnt = 0
-        bags.keys.forEach {
-            if (canContain(it, color, bags)) {
-                cnt += 1
-            }
-        }
-
-        return cnt
+        return bags.keys.map { if (canContain(it, color, bags)) 1 else 0 }.sum()
     }
 
     private fun canContain(bagColor: String, color: String, bags: Map<String, Map<String, Int>>): Boolean {
