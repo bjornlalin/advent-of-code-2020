@@ -54,15 +54,10 @@ class Day7 : Day {
         return bags.keys.map { if (canContain(it, color, bags)) 1 else 0 }.sum()
     }
 
-    private fun canContain(bagColor: String, color: String, bags: Map<String, Map<String, Int>>): Boolean {
-        val containedBags = bags[bagColor] ?: throw Exception("CORRUPT")
-
-        if (containedBags.containsKey(color)) {
-            return true
-        }
-
-        for (c in containedBags.keys) {
-            if(canContain(c, color, bags)) {
+    // Find the color by traversing bags-in-bags (Depth First Search)
+    private fun canContain(bagColor: String, colorToFind: String, bags: Map<String, Map<String, Int>>): Boolean {
+        for (containedBagColor in (bags[bagColor] ?: error("")).keys) {
+            if(containedBagColor == colorToFind || canContain(containedBagColor, colorToFind, bags)) {
                 return true
             }
         }
