@@ -53,7 +53,6 @@ class Day9 : Day {
     }
 
     private fun containsPairWhichSumsTo(window: List<Long>, sum: Long): Boolean {
-        setOf(window.indices)
         for (i in window.indices) {
             for (j in i until window.size) {
                 if (window[i] + window[j] == sum)
